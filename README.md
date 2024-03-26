@@ -12,6 +12,7 @@ npm install para instalar todas las dependencias.
 
 ### 2. Crear la estructura del proyecto
 
+```
 ├── src/
 │   ├── components/
 │   │   ├── Button.jsx
@@ -29,6 +30,7 @@ npm install para instalar todas las dependencias.
 │   ├── index.css
 │   └── ...
 ├── index.html
+```
 
 ### 3. Qué tendrá cada archivo:
 - `main.jsx, app.css, index.css e index.html` se mantendrán sin cambios
