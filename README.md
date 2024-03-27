@@ -1,60 +1,27 @@
-# Ejercicio de uso de useContext en React
+# Sumando números con REACT
 
-Este ejercicio tiene como objetivo ayudarte a familiarizarte con el uso de `useContext` en React para gestionar el estado global de una aplicación. 
-
-Tendremos que crear un botón que al pulsarlo cambie el estado y a su vez las css.
+Vamos a crear una especie de calculadora que nos ayudará a sumar números dando un resultado final en otra página. Esto lo haremos gracias a `useContext` y `useState`. También gestionaremos nuestras rutas con `create-router-dom`. 
 
 ## Pasos a seguir
 
-### 1. Configuración del proyecto
+### Paso 1: Configuración del proyecto
+- Comenzaremos instalando las dependencias con `npm i`. Revisaremos si tenemos `react-router-dom` instalado. 
 
-npm install para instalar todas las dependencias.
+### Paso 2: Crear los componentes y el contexto
+- Crear un componente `CalculatorProvider` que utilizará `createContext` para proporcionar un contexto a la aplicación. Aqui definiremos el estado en el contexto para mantener una lista de números seleccionados y el número actualmente seleccionado.
+- Crear un componente `Calculator` que mostrará la calculadora y permitirá a los usuarios seleccionar números.
+Cada vez que se pulse un botón aparecerá el número en pantalla. Luego habrá un enlace a la ruta `resultado` donde aparecerá el resultado de la suma.
+- Crearemos el componente `Result`en el que mostraremos el resultado de la suma de todos los números pulsados y todos los números que se han pulsado. También tendremos un botón de reset para dejar a 0 los valores. 
 
-### 2. Crear la estructura del proyecto
+### Paso 3: Implementar la lógica de la calculadora
+- En el contexto `CalculatorProvider`, agregar funciones para agregar números a la lista, sumar los números seleccionados y restablecer la calculadora.
+- Implementar la función de agregar números `addNumbers` para agregar números a la lista y actualizar el número actualmente seleccionado.
+- En la página de la calculadora aparecerán los números del 0 al 9 para poder pulsarlos. Al pulsarlos se irán sumando. Tendremos un enlace a `resultado` para ver el resultado. 
+- Mostrar el resultado de la suma de los números seleccionados en la ruta de `resultado`. Además del resultado, tendrán que aparecer los números que hemos pulsado, un botón de `reset` para dejar todo a 0 y un enlace de vuelta a la calculadora.
 
-```
-├── src/
-│   ├── components/
-│   │   ├── Button.jsx
-│   ├── pages/
-│   │   ├── Home.jsx
-│   │   ├── Profile.jsx
-│   │   ├── MyJob.jsx
-│   ├── routes/
-│   │   ├── RoutesApp.jsx
-│   ├── themes/
-│   │   ├── ThemeContext.js
-│   ├── App.jsx
-│   ├── main.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── ...
-├── index.html
-```
+### BONUS
 
-### 3. Qué tendrá cada archivo:
-- `main.jsx, app.css, index.css e index.html` se mantendrán sin cambios
-- `components/button.jsx`: Será el botón que hará que cambie el estado de `light` a `dark`
-- `pages`: dentro estará home, projects y myJob. En cada una renderizarás lo que quieras pero que se diferencien entre ellas. Por ejemplo podemos poner `<h1>Esta es la página home</h1>`, `<h1>Esta es la página profile</h1>` , `<h1>Esta es la página MyJob</h1>`.
-
-En todas las páginas debe aparecer el botón para cambiar. Decide si va en cada una o hay otra manera de ponerla para todas.
-- `routes/RoutesApp`: Irán nuestras rutas. Puedes hacerlas con:
-
-```js
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-```
-
-- `themes/themeContext`: Aquí estará nuestro contexto y donde haremos los cambios de estado. Debemos comenzar con un estado de `light` que al pulsar cambiará a `dark`. Al hacerlo hay unas clases creadas en `index.css` donde puedes ver lo que hace.
-- `App`: Es el inicio de nuestra aplicación y donde habrá que usar el `ThemeProvider` y las `rutas`
-
-*** Pistas: ***
-Para cambiar la clase puedes hacer algo similar a esto:
-```js 
-<section className={`App ${theme}`}>
-```
-Esto puede ir sobre todas tus rutas `<Routes>` envolviéndolas. CUando se clicke de inicio ese `theme`será nuestro valor inicial del `useState` y al clickar el botón cambiará.
-
-- Si necesitas usar más css, más divs, sections o componentes... siéntete libre de hacerlo, siempre que la aplicación funcione y quede correcta.
+Añadir estilos para resaltar el número actual seleccionado en la calculadora y para mostrar la lista de números seleccionados de manera clara en la página de resultado.
 
 
 

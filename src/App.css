@@ -1,3 +1,27 @@
-#root {
-  text-align: center;
+/* App.css */
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  margin: 20px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-gap: 10px;
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+}
+
+.result {
+  margin-top: 20px;
 }
